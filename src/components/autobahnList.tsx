@@ -4,8 +4,10 @@ import React from "react";
 export default function Ping() {
     const [post, setPost] = React.useState<any>(null);
 
+    const baseURL = "https://verkehr.autobahn.de/o/autobahn/";
+
     React.useEffect(() => {
-        axios.get("https://ebzuerich-simple-api.herokuapp.com/ping").then((response) => {
+        axios.get(baseURL).then((response) => {
             setPost(response.data);
             console.log(response);
         });
@@ -15,8 +17,9 @@ export default function Ping() {
 
     return (
         <div>
-            <h1>{post.message}</h1>
-            <p>{post.time}</p>
+            <li>
+            {post.roads.map((road: string) => <ul>{road}</ul>)}
+            </li>
         </div>
     );
 }
