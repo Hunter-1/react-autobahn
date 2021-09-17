@@ -16,10 +16,8 @@ export default function Ping() {
     if (!post) return null;
 
     return (
-        <div>
-            <li>
-            {post.roads.map((road: string) => <ul>{road}</ul>)}
-            </li>
+        <div className="roads">
+            {post.roads.map((road: string) => <button>{road}</button>)}
         </div>
     );
 }
