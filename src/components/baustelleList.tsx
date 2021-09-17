@@ -15,10 +15,23 @@ export default function BaustelleList(roadID: any) {
 
     if (!post) return null;
 
+    function showDescription(id: string){
+        const description = document.getElementById(id);
+        if (description!.style.display === "block"){
+            description!.style.display = "none"
+        } else {
+            description!.style.display = "block"
+        }
+    }
+
     return (
         <div className="baustellen">
             {post.roadworks.map((baustelle: any) =>
-            <button>{baustelle.title}</button>)}
+            [<button onClick={() => showDescription(baustelle.identifier)}>{baustelle.title}</button>,
+                <div id={baustelle.identifier} className="description">
+                    {baustelle.description.map((text: any) =>
+                    <p>{text}</p>)}
+                </div>])}
         </div>
     );
 }

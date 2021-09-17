@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import BaustelleList from "./baustelleList";
 
 export default function AutobahnList() {
     const [post, setPost] = React.useState<any>(null);
@@ -15,9 +16,21 @@ export default function AutobahnList() {
 
     if (!post) return null;
 
+    function showDescription(id: string){
+        const description = document.getElementById(id);
+        if (description!.style.display === "block"){
+            description!.style.display = "none"
+        } else {
+            description!.style.display = "block"
+        }
+    }
+
     return (
         <div className="roads">
-            {post.roads.map((road: string) => [<button>{road}</button>,<div className={road}></div>])}
+            {post.roads.map((road: string) => [<button onClick={() => showDescription(road)}>{road}</button>,
+                <div id={road} className="road">
+                <BaustelleList roadID={road}/>
+            </div>])}
         </div>
     );
 }

@@ -17,3 +17,10 @@ code {
   cursor: pointer; /* Pointer/hand icon */
   display: block; /* Make the buttons appear below each other */
 }
+
+.road {
+  display: none;
+}
+.description {
+  display: none;
+}
