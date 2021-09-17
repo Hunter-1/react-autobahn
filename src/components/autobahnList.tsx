@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-export default function Ping() {
+export default function AutobahnList() {
     const [post, setPost] = React.useState<any>(null);
 
     const baseURL = "https://verkehr.autobahn.de/o/autobahn/";
@@ -17,7 +17,7 @@ export default function Ping() {
 
     return (
         <div className="roads">
-            {post.roads.map((road: string) => <button>{road}</button>)}
+            {post.roads.map((road: string) => [<button>{road}</button>,<div className={road}></div>])}
         </div>
     );
 }
