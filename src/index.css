@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+h1 {
+  float: left;
+}
+
 .roads button {
   padding: 10px 24px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
@@ -23,4 +27,33 @@ code {
 }
 .description {
   display: none;
+}
+.roads {
+
+}
+.roads button {
+  border: 1px solid gray;
+  padding: 10px 25px;
+  background-color: #eeeeee;
+  cursor: pointer;
+  width: 50%; /* Set a width if needed */
+}
+
+.baustellen button {
+  width: 65%; /* Set a width if needed */
+}
+
+.description {
+  border: 1px solid gray;
+  padding: 10px 25px;
+  background-color: #eeeeee;
+  width: 80%;
+}
+
+.roads button:not(:last-child) {
+  border-bottom: none;
+}
+
+.btn-group button:hover {
+  background-color: #3e8e41;
 }
