@@ -10,7 +10,6 @@ export default function AutobahnList() {
     React.useEffect(() => {
         axios.get(baseURL).then((response) => {
             setPost(response.data);
-            console.log(response);
         });
     }, []);
 
@@ -24,12 +23,12 @@ export default function AutobahnList() {
             description!.style.display = "block"
         }
     }
-
+    post.roads.pop()
     return (
         <div className="roads">
-            {post.roads.map((road: string) => [<button onClick={() => showDescription(road)}>{road}</button>,
-                <div id={road} className="road">
-                <BaustelleList roadID={road}/>
+            {post.roads.map((road: string) => [<button key={road + "button"} onClick={() => showDescription(road)}>{road}</button>,
+                <div key={road + "div"} id={road} className="road">
+                <BaustelleList key={road + "baustelleList"} roadID={road}/>
             </div>])}
         </div>
     );
